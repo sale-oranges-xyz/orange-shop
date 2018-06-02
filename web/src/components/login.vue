@@ -20,7 +20,7 @@
 </template>
 
 <style lang="less">
-  @import '../.././static/common/common.less';
+  @import '~@static/common/common.less';
   .border{ .border; background-color: var(--white); padding: .5rem 1.5rem 2rem 1.5rem !important; .border-radius;}
   .h2{ .text-align; color: @text-color;}
   .button{.width; .font-size; .margin-top;}

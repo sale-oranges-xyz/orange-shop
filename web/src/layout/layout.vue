@@ -1,3 +1,37 @@
+<style scoped lang="less">
+  @import '~@static/common/common.less';
+
+  @header-height: 60px;
+  .el-menu{border-right: none;}
+
+  .padding-btm{ .padding-btm; }
+  .power-off{padding-left: 20px;border-left: 1px solid #ddd;}
+  .square{width:50px; height:50px; border-radius: 5px;margin-top: 3px;}
+
+  .el-header{
+    background-color: var(--white);
+    color: #606266;
+    line-height: @header-height;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .el-aside {
+    background-color: rgb(84, 92, 100);
+    color: var(--white);
+    line-height: 100vh;
+    height: 100vh;
+    border-right: 1px solid #606266;
+  }
+  .el-aside > .header{
+    min-height: @header-height;
+  }
+
+  .el-main {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+</style>
+
 <template>
   <el-container>
     <el-aside width="66px">
@@ -7,10 +41,20 @@
             <i class="el-icon-document"></i>
            <span slot="title">首页</span>
           </el-menu-item>
-          <el-menu-item index="/blog/list" :route="{path: '/blog/list'}">
-            <i class="el-icon-menu"></i>
-            <span slot="title">我的博客</span>
-          </el-menu-item>
+
+          <el-submenu index="/sys-components">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>系统组件</span>
+            </template>
+
+            <el-menu-item index="/sys-components" :route="{path: '/home/sys-page'}">
+              <i class="el-icon-document"></i>
+             <span slot="title">分页</span>
+            </el-menu-item>
+
+          </el-submenu>
+
       </el-menu>
     </el-aside> <!--侧边栏-->
 
@@ -38,40 +82,6 @@
     </el-container>
   </el-container>
 </template>
-
-<style scoped lang="less" >
-@import '../.././static/common/common.less';
-
-@header-height: 60px;
-.el-menu{border-right: none;}
-
-.padding-btm{ .padding-btm; }
-.power-off{padding-left: 20px;border-left: 1px solid #ddd;}
-.square{width:50px; height:50px; border-radius: 5px;margin-top: 3px;}
-
-.el-header{
-  background-color: var(--white);
-  color: #606266;
-  line-height: @header-height;
-  border-bottom: 1px solid #ddd;
-}
-
-.el-aside {
-  background-color: rgb(84, 92, 100);
-  color: var(--white);
-  line-height: 100vh;
-  height: 100vh;
-  border-right: 1px solid #606266;
-}
-.el-aside > .header{
-  min-height: @header-height;
-}
-
-.el-main {
-  background-color: #f2f2f2;
-  color: #333;
-}
-</style>
 
 <script>
 /**

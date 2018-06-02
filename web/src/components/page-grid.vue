@@ -1,14 +1,20 @@
+<style lang="less">
+.el-table__empty-block { min-height: 15rem;}
+</style>
+
 <template>
   <div>
-    <el-table
-      :data="tableData" :stripe="stripe" style="width: 100%">
+
+    <el-table :data="tableData" :stripe="stripe" >
+
+      <img slot="empty" :src="emptyImg" style="height: 13rem;">
 
     </el-table>
 
     <el-pagination
       :page-sizes="[10, 15, 20, 30]"
-      :page-size="100"
-      :total="400"
+      :page-size="pageData.pageSize"
+      :total="pageData.total"
       layout="total, sizes, prev, pager, next, jumper"
       background
       class="pagination"
@@ -20,6 +26,8 @@
 </template>
 
 <script>
+import EmptyImg from '@static/image/empty-img1.png'
+
 export default {
   props: {
     /** 请求链接 */
@@ -29,14 +37,19 @@ export default {
     },
     /** 是否为斑马纹，默认是 */
     stripe: {
-      type: String,
+      type: Boolean,
       default: true
     }
 
   },
   data () {
     return {
-      tableData: []
+      emptyImg: EmptyImg,
+      tableData: [],
+      pageData: {
+        total: 0,
+        pageSize: 0
+      }
     }
   },
   methods: {
