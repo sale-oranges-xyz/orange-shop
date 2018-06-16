@@ -1,0 +1,71 @@
+@import "~./var.less";
+
+.bg-white {
+  background-color: #fff;
+}
+
+// margin
+.margin-top-s { margin-top: @distance-s !important; }
+.margin-top-m { margin-top: @distance-m !important; }
+
+.maring-right-s { margin-right: @distance-s !important; }
+.margin-right-m { margin-right: @distance-m !important; }
+
+.margin-left-s { margin-left: @distance-s !important; }
+.margin-left-m { margin-left: @distance-m !important; }
+
+.margin-bottom-s { margin-bottom: @distance-s !important; }
+.margin-bottom-m { margin-bottom: @distance-m !important; }
+
+// padding
+.padding-ss { padding: @distance-ss !important; }
+.padding-s { padding: @distance-s !important; }
+
+.padding-top-s { padding-top: @distance-s !important; }
+.padding-top-m { padding-top: @distance-m !important; }
+
+.padding-bottom-s { padding-bottom: @distance-s !important; }
+.padding-bottom-m { padding-bottom: @distance-m !important; }
+
+.padding-right-s { padding-right: @distance-s !important; }
+.padding-right-m { padding-right: @distance-m !important; }
+
+// text-align
+// text-align 函数
+.align-center {
+  .text-align(center);
+}
+.align-left {
+  .text-align(left);
+}
+.align-right {
+  .text-align(right);
+}
+
+// 颜色
+.color-light { color: @gray-light; }
+.color-lighter { color: @gray-lighter; }
+.color-pink {color: @pink;}
+
+// float
+.float-left {
+  float:left;
+}
+.float-right {
+  float: right;
+}
+
+// border
+.border-bottom-s {
+  .border-btm-s;
+}
+
+// 文字超出省略
+.overflow-ellipsis-3 {
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box; /** 将对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 3; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+}
