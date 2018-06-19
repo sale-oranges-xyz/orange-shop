@@ -7,6 +7,7 @@ import VApp from '@/layout/v-app';
 import VFlex from '@/components/v-flex';
 import VFlexItem from '@/components/v-flex-item';
 import ImageList from '@/components/v-image-list';
+import VVanList from '@/components/v-van-list';
 
 export default (Vue) => {
   Vue.component('el-row', ElRow);
@@ -16,4 +17,5 @@ export default (Vue) => {
   Vue.component('v-flex', VFlex);
   Vue.component('v-flex-item', VFlexItem);
   Vue.component('v-image-list', ImageList);
+  Vue.component('v-van-list', VVanList);
 };

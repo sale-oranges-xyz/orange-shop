@@ -12,6 +12,8 @@
     <v-notice-bar class="margin-top-s" />
     <!-- 精彩话题 -->
     <v-topic class="margin-top-m" />
+    <!-- 推荐会员 -->
+    <v-recommend />
   </div>
 </template>
 
@@ -20,6 +22,7 @@ import VSwipe from './components/v-swipe.vue';
 import VFlexType from './components/v-flex-type.vue';
 import VNoticeBar from './components/v-notice-bar.vue';
 import VTopic from './components/v-topic.vue';
+import VRecommend from './components/v-recommend.vue';
 
 export default {
   desc: '首页',
@@ -27,7 +30,8 @@ export default {
     VSwipe,
     VFlexType,
     VNoticeBar,
-    VTopic
+    VTopic,
+    VRecommend
   }
 };
 </script>

@@ -1,7 +1,7 @@
 /**
  * 精彩话题api
  */
-import PromiseUtil from '@/utils/PromiseUtil';
+import PromiseUtil from '@/utils/promiseUtil';
 import timg1 from '@static/common/images/timg_1.jpg';
 import timg2 from '@static/common/images/timg-2_1.jpg';
 

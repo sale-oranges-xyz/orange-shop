@@ -1,5 +1,5 @@
 <style lang="less" scoped>
-  @import "~@static/common/style/flex.less";
+  
 </style>
 
 <template>

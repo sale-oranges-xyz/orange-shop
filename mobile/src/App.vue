@@ -1,18 +1,14 @@
 <style lang="less">
   @import "~@static/common/style/common.less";
-  @import "~@static/common/style/var.less";
+  @import "~@static/common/style/var.less";  
   body {
     background-color: #f5f7fa;
-    font-size: @font-size-m;
+    font-size: @font-size-l;
   }
-</style>
 
-<style lang="less" scoped>
-  @import '~@static/common/style/var.less';
-  .van-tabbar-item--active {
+  .van-tabbar-item--active{
     color: @pink;
   }
-
 </style>
 
 <template>

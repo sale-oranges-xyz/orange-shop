@@ -1,6 +1,4 @@
 <style lang="less" scoped>
-  @import "~@static/common/style/flex.less";
-  @import "~@static/common/style/common.less";
 
 </style>
 
@@ -15,6 +13,7 @@ export default {
   name: 'v-flex-item',
   desc: 'flex布局item',
   props: {
+    // left(偏左)/center(居中)/right(偏右)
     align: {
       type: String,
       default: ''

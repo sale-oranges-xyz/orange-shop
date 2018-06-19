@@ -1,7 +1,7 @@
 /**
  * 公告栏模块
  */
-import PromiseUtil from '@/utils/PromiseUtil';
+import PromiseUtil from '@/utils/promiseUtil';
 
 export default {
   getNotice() {

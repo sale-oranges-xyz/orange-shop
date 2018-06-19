@@ -6,7 +6,7 @@
  import navS13Nv from '@static/common/images/nav_s13_nv.png';
  import navS13Gc from '@static/common/images/nav_s13_gc.png';
 
- import PromiseUtil from '@/utils/PromiseUtil';
+ import PromiseUtil from '@/utils/promiseUtil';
 
  export default {
    getTypes() {

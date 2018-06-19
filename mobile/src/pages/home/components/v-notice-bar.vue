@@ -3,8 +3,8 @@
 </style>
 
 <template>
-  <!-- color="#606266" background="#fff"-->
-  <van-notice-bar left-icon="//img.yzcdn.cn/public_files/2017/8/10/6af5b7168eed548100d9041f07b7c616.png">
+  <van-notice-bar background="#fff" color="#666"
+    left-icon="//img.yzcdn.cn/public_files/2017/8/10/6af5b7168eed548100d9041f07b7c616.png">
       {{notice}}
   </van-notice-bar>
 </template>

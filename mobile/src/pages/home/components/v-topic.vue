@@ -45,7 +45,7 @@
         <v-flex-item align="right" class="padding-right-m">更多话题</v-flex-item>
       </v-flex>
 
-      <v-image-list class="border-bottom-s" padding="9px" v-for="(item, index) in topicList" :key="index" :path="item.path">
+      <v-image-list class="border-bottom-s" padding="10px" v-for="(item, index) in topicList" :key="index" :path="item.path">
           <img class="img-msg" :src="item.sexImg">
           <span class="list-span margin-left-s">{{item.name}}</span>
           <span class="margin-left-s" :class="item.onlineClass">{{item.onlineText}}</span>

@@ -60,6 +60,19 @@
   .border-btm-s;
 }
 
+// font-size
+.font-size-s{
+  font-size: @font-size-s;
+}
+.font-size-m{
+  font-size: @font-size-m;
+}
+.font-size-l{
+  font-size: @font-size-l;
+}
+.font-size-xl{
+  font-size: @font-size-xl;
+}
 // 文字超出省略
 .overflow-ellipsis-3 {
   text-overflow: ellipsis;
@@ -68,4 +81,16 @@
   -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
   -webkit-line-clamp: 3; /** 显示的行数 **/
   overflow: hidden;  /** 隐藏超出的内容 **/
+}
+
+// flex 布局
+.flex {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  &-item {
+    flex: 1;
+    align-items: center;
+    overflow:hidden;
+  }
 }
