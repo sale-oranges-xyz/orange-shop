@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    // 跨域代理设置 参考 https://www.cnblogs.com/wancheng7/p/8987694.html
+    proxyTable: {
+      '/api': {
+        target: process.env.PROXY_URL,    //目标接口域名
+        changeOrigin: true,               //是否跨域
+        pathRewrite: {
+          '^/api': process.env.PROXY_API  //重写接口
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

@@ -66,7 +66,7 @@
         <div class="el-pagination__rightwrapper">
           <el-button type="text" style="font-size: 16px; color:var(--black);">
             <el-badge :value="3" style="line-height: 30px; margin-right: 20px;">
-              <font-awesome icon="envelope"></font-awesome>
+              <v-font-awesome icon="envelope"></v-font-awesome>
             </el-badge>
           </el-button>
         </div><!--消息-->
