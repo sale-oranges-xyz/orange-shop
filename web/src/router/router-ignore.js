@@ -13,7 +13,7 @@ export default {
   match (path) {
     // 参考 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of
     for (let url of ignoreUrl) {
-      console.log('url', url)
+      // console.log('url', url)
       if (url === path) {
         return true
       }

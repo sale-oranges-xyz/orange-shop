@@ -40,7 +40,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   3、基于axios封装http请求，请求成功后的响应只返回body信息,不返回状态
   4、在vue router 做登陆拦截
   5、3和4实现逻辑，参考 https://blog.csdn.net/qq673318522/article/details/55506650
-
+  6、用户登陆 账号admin 密码 admin
 ```
 
 ## 技术文章整理

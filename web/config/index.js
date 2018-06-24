@@ -6,18 +6,15 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     // 跨域代理设置 参考 https://www.cnblogs.com/wancheng7/p/8987694.html
+    // 开发环境，这里需要修改 注意
     proxyTable: {
       '/api': {
-        target: process.env.PROXY_URL,    //目标接口域名
-        changeOrigin: true,               //是否跨域
-        pathRewrite: {
-          '^/api': process.env.PROXY_API  //重写接口
-        }
+        target: 'http://localhost:5555', //目标接口域名
+        changeOrigin: true               //是否跨域
       }
     },
 

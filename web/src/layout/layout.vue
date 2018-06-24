@@ -61,7 +61,7 @@
     <el-container>
       <el-header>
         <div class="el-pagination__rightwrapper power-off">
-          <el-button type="text" style="font-size: 16px;"><font-awesome icon="power-off"></font-awesome></el-button>
+          <el-button type="text" style="font-size: 16px;"><v-font-awesome icon="power-off"></v-font-awesome></el-button>
         </div><!--退出 -->
         <div class="el-pagination__rightwrapper">
           <el-button type="text" style="font-size: 16px; color:var(--black);">

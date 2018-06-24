@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Store from '@/stores/system'
+import AuthTypes from '@/stores/system/auth-types'
 // 进度条样式
 import 'nprogress/nprogress.css'
 import NProgress from 'nprogress'
@@ -21,6 +22,8 @@ const router = new Router({
 // 参考 https://blog.csdn.net/qq673318522/article/details/55506650
 // https://github.com/superman66/vue-axios-github/blob/master/src/router.js
 router.beforeEach((to, from, next) => {
+  // console.log('to', to)
+  // console.log('from', from)
   // 获取路由 path
   if (RouterIgnore.match(to.path)) { // 不需要拦截
     // 开始导航条动画
@@ -28,7 +31,9 @@ router.beforeEach((to, from, next) => {
     next() // 这里的next设计，与node的express很类似
   } else {
     // 判断有没有token 使用 vuex 管理
-    if (Store.state.token) {
+    // 使用getters 获取token
+    const token = Store.getters[AuthTypes.TOKEN]
+    if (token) {
       NProgress.start()
       next() // 这里的next设计，与node的express很类似
     } else {

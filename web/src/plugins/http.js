@@ -2,7 +2,6 @@
  * 封装axios 的http请求
  * 参考 https://github.com/zaofeng/just_for_base/blob/master/vue/main.js
  * https://www.npmjs.com/package/axios
- * https://www.cnblogs.com/wisewrong/p/6402183.html
  */
 import axios from 'axios'
 import store from '@/stores/system'
@@ -24,9 +23,9 @@ axios.interceptors.request.use((config) => {
   // 获取用户token
   const token = window.localStorage.getItem('token')
   if (token) {
-    config.headers['Authorization'] = token
+    config.headers['Authorization'] = `Bearer ${token}` // 模板语法
   }
-  // 如果没有token 重定向到登录页面
+  return config // 返回配置信息
 }, (error) => {
   // 对请求错误做些什么
   console.log('错误的传参')
@@ -36,11 +35,14 @@ axios.interceptors.request.use((config) => {
 // 响应拦截器
 axios.interceptors.response.use((res) => {
   // 对响应状态处理
-  const body = res.body
-  if (res.status !== '200') {
-    return Promise.reject(body)
+  // console.log('axios response', res)
+  // console.log('axios response status', res.status)
+  if (res.status !== 200) {
+    // console.log('res.status !== 200')
+    return Promise.reject(res)
   }
-  return body
+  // console.log('axios response data', res.data)
+  return res.data
 }, (error) => {
   if (error.response) {
     switch (error.response.status) {
@@ -61,19 +63,19 @@ axios.interceptors.response.use((res) => {
   return Promise.reject(error)
 })
 
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = 'api'
 // 设置默认请求头
-axios.defaults.headers = {
-  'X-Requested-With': 'XMLHttpRequest'
-}
+// axios.defaults.headers = {
+//   'X-Requested-With': 'XMLHttpRequest'
+// }
 // 设置请求过时时间
 axios.defaults.timeout = 5000
 
 let createAxios = (config = {}) => {
   // config 拼接具体url
-  config.url = process.env.PROXY_API + config.url
-  console.log('PROXY_API', process.env.PROXY_API)
-  console.log('config.url', config.url)
+  // config.url = process.env.PROXY_API + config.url
+  // console.log('PROXY_API', process.env.PROXY_API)
+  // console.log('config.url', config.url)
   return axios(config)
 }
 

@@ -1,16 +1,26 @@
-import Vuex from 'vuex'
-import Vue from 'vue'
 import authTypes from './auth-types'
 
-Vue.use(Vuex)
-export default new Vuex.Store({
+export default {
   state: {
     user: {},
     token: null
   },
+  getters: {
+    [authTypes.TOKEN]: (state) => {
+      if (state.token) {
+        return state.token
+      }
+      const token = localStorage.removeItem('token')
+      if (token) {
+        state.token = token // 赋值
+        return token
+      }
+      return ''
+    }
+  },
   mutations: {
     [authTypes.LOGIN]: (state, data) => {
-      localStorage.token = data
+      localStorage.setItem('token', data)
       state.token = data
     },
     [authTypes.LOGOUT]: (state) => {
@@ -19,4 +29,4 @@ export default new Vuex.Store({
     }
   }
   // 看情况写 actions
-})
+}

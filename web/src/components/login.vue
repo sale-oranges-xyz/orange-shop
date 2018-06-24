@@ -33,6 +33,7 @@
 import SystemApi from '@/apis/system'
 // vuex
 import AuthTypes from '@/stores/system/auth-types'
+import {LOGIN_PAGE, HOME_PAGE} from '@/router/system'
 
 export default {
   data () {
@@ -68,18 +69,31 @@ export default {
       }
 
       SystemApi.login(form).then((res) => {
+        // console.log('res1', res)
         if (res) {
+          // console.log('token', res.token)
+          // console.log('$store', this.$store)
           // token 存入vuex
           this.$store.commit(AuthTypes.LOGIN, this.token)
           // 跳转
           // 函数参考 http://www.w3school.com.cn/jsref/jsref_decodeURIComponent.asp
-          console.log('login query.redirect', this.$route.query.redirect)
-          let redirect = decodeURIComponent(this.$route.query.redirect || '/home')
-          this.$router.push(redirect)
+          // console.log('login query.redirect', this.$route.query.redirect)
+          const redirectUrl = decodeURIComponent(this.$route.query.redirect || HOME_PAGE)
+          if (LOGIN_PAGE === redirectUrl) { // 等于登录路由
+            console.log('111')
+            this.$router.push(HOME_PAGE)
+          } else {
+            console.log('222')
+            this.$router.push(redirectUrl)
+          }
         }
       }).catch((reason) => {
         // 登陆失败 , 显示 toast 弹窗
-        this.$message.error(reason.body)
+        console.log('login fail', reason)
+        if (reason && reason.body) {
+          this.$message.error(reason.body)
+        }
+        // console.log('this.$message', this.$message)
       })
     }
   },

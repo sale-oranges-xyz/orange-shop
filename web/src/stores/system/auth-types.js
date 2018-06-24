@@ -3,5 +3,6 @@
  */
 export default {
   LOGOUT: 'logout',
-  LOGIN: 'login'
+  LOGIN: 'login',
+  TOKEN: 'token'
 }

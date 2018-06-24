@@ -4,20 +4,24 @@ import Login from '@/components/login'
 
 import Components from './components'
 // 定义登录路径
-const loginPage = '/login'
-
-export const LOGIN_PAGE = loginPage
+export const LOGIN_PAGE = '/login' // 登录路由
+export const HOME_PAGE = '/home' // 主页路由
 
 export const System = [
   {
-    path: loginPage,
+    path: LOGIN_PAGE,
     component: Login,
     meta: {
       title: '登录'
     }
   },
+  // 重定向到主页
   {
-    path: '/home',
+    path: '/',
+    redirect: HOME_PAGE
+  },
+  {
+    path: HOME_PAGE,
     component: Home,
     children: Components
   }
