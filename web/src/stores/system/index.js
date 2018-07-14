@@ -1,12 +1,13 @@
-import authTypes from './auth-types'
+import SystemTypes from './types'
 
 export default {
   state: {
     user: {},
-    token: null
+    token: null,
+    title: '首页' // vuex
   },
   getters: {
-    [authTypes.TOKEN]: (state) => {
+    [SystemTypes.TOKEN]: (state) => {
       if (state.token) {
         return state.token
       }
@@ -16,16 +17,22 @@ export default {
         return token
       }
       return ''
+    },
+    [SystemTypes.TITLE]: (state) => {
+      return state.title
     }
   },
   mutations: {
-    [authTypes.LOGIN]: (state, data) => {
+    [SystemTypes.LOGIN]: (state, data) => {
       localStorage.setItem('token', data)
       state.token = data
     },
-    [authTypes.LOGOUT]: (state) => {
+    [SystemTypes.LOGOUT]: (state) => {
       localStorage.removeItem('token')
       state.token = null
+    },
+    [SystemTypes.TITLE]: (state, data) => {
+      state.title = data
     }
   }
   // 看情况写 actions

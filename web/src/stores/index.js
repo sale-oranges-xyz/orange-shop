@@ -16,6 +16,8 @@ let mutations = systemStore.mutations
 let actions = ObjectUtil.isUndefined(systemStore.actions) ? {} : systemStore.actions
 let getters = systemStore.getters
 
+// 也可使用 module 模式
+// https://vuex.vuejs.org/zh/guide/modules.html
 export default new Vuex.Store({
   state,
   getters,

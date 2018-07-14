@@ -32,7 +32,7 @@
 // apis
 import SystemApi from '@/apis/system'
 // vuex
-import AuthTypes from '@/stores/system/auth-types'
+import SystemTypes from '@/stores/system/types'
 import {LOGIN_PAGE, HOME_PAGE} from '@/router/system'
 
 export default {
@@ -74,7 +74,7 @@ export default {
           // console.log('token', res.token)
           // console.log('$store', this.$store)
           // token 存入vuex
-          this.$store.commit(AuthTypes.LOGIN, this.token)
+          this.$store.commit(SystemTypes.LOGIN, this.token)
           // 跳转
           // 函数参考 http://www.w3school.com.cn/jsref/jsref_decodeURIComponent.asp
           // console.log('login query.redirect', this.$route.query.redirect)

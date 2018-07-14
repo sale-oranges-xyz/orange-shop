@@ -4,5 +4,6 @@
 export default {
   LOGOUT: 'logout',
   LOGIN: 'login',
-  TOKEN: 'token'
+  TOKEN: 'token',
+  TITLE: 'title'
 }

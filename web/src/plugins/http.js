@@ -5,7 +5,7 @@
  */
 import axios from 'axios'
 import store from '@/stores/system'
-import authTypes from '@/stores/system/auth-types'
+import SystemTypes from '@/stores/system/types'
 import router from '@/router'
 // 登录路径
 import { LOGIN_PAGE } from '@/router/system'
@@ -49,7 +49,7 @@ axios.interceptors.response.use((res) => {
       // 如果token 过期，提醒用户重新登陆
       case responseStatus.INVALID_TOKEN:
         // 401 清除token信息并跳转到登录页面
-        store.commit(authTypes.LOGOUT)
+        store.commit(SystemTypes.LOGOUT)
         // 只有在当前路由不是登录页面才跳转
         if (router.currentRoute.path !== LOGIN_PAGE) {
           // 跳转到登陆页面

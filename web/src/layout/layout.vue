@@ -16,11 +16,11 @@
   }
 
   .el-aside {
-    background-color: rgb(84, 92, 100);
+    background-color: var(--white);
     color: var(--white);
     line-height: 100vh;
     height: 100vh;
-    border-right: 1px solid #606266;
+    border-right: 1px solid #ddd;
   }
   .el-aside > .header{
     min-height: @header-height;
@@ -34,10 +34,10 @@
 
 <template>
   <el-container>
-    <el-aside width="66px">
+    <el-aside width="13rem">
       <div class="header"></div>
-      <el-menu :collapse="isCollapse" :default-active="activeIndex" @select="select" background-color="#545c64" :router="true">
-          <el-menu-item index="/home" :route="{path: '/home'}">
+      <el-menu :collapse="isCollapse" :default-active="activeIndex" @select="select" > <!-- :router="true" -->
+          <el-menu-item index="/home" > <!-- :route="{path: '/home'}" -->
             <i class="el-icon-document"></i>
            <span slot="title">首页</span>
           </el-menu-item>
@@ -48,7 +48,7 @@
               <span>系统组件</span>
             </template>
 
-            <el-menu-item index="/sys-components" :route="{path: '/home/sys-page'}">
+            <el-menu-item index="/home/sys-page"> <!-- :route="{path: '/home/sys-page'}" -->
               <i class="el-icon-document"></i>
              <span slot="title">分页</span>
             </el-menu-item>
@@ -84,47 +84,35 @@
 </template>
 
 <script>
-/**
- * 设置参数
- * @param that 当前vue实例对象
- */
-function setMsg (that) {
-  let fullPath = ''
-  let title = ''
-  const history = that.$router.history
-  if (history) {
-    // console.log(history)
-    fullPath = history.current.fullPath
-    title = history.current.meta.title
-    return {fullPath: fullPath, title: title}
-  }
-  return null
-}
+import SystemTypes from '@/stores/system/types'
 
 export default {
+
   data () {
     return {
-      isCollapse: true,
-      activeIndex: '/home',
-      title: '首页'
+      isCollapse: false,
+      activeIndex: '/home'
     }
   },
+
   created () {
-    const msg = setMsg(this)
-    if (msg) {
-      this.title = msg.title
-      this.activeIndex = msg.fullPath
+    // console.log('this.$router', this.$router)
+    const history = this.$router.history
+    if (history) {
+      this.activeIndex = history.current.fullPath
     }
     // console.log(msg)
   },
+  computed: {
+    // 使用对象展开运算符将 getter 混入 computed 对象中
+    title () {
+      return this.$store.getters[SystemTypes.TITLE]
+    }
+  },
+
   methods: {
-    select (val) {
-      const msg = setMsg(this)
-      if (msg) {
-        this.title = msg.title
-        this.activeIndex = msg.fullPath
-      }
-      // console.log('菜单激活', val)
+    select (path) {
+      this.$router.replace(path)
     }
   }
 }

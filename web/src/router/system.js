@@ -22,6 +22,9 @@ export const System = [
   },
   {
     path: HOME_PAGE,
+    meta: {
+      title: '首页'
+    },
     component: Home,
     children: Components
   }

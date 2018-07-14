@@ -3,7 +3,7 @@
  */
 import { LOGIN_PAGE } from './system'
 
-const ignoreUrl = [LOGIN_PAGE]
+const ignoreUrl = [LOGIN_PAGE, '/home', '/home/sys-page']
 
 export default {
   /**
