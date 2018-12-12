@@ -1,7 +1,5 @@
 
-#### 前端说明
-```
-	vue项目，使用vue全家桶
-	mobile 移动端项目
-	web 后台页面
-```
+# 收集阅读文章
+npm官方文档 https://docs.npmjs.com/   
+npm依赖包版本管理 https://www.jianshu.com/p/1470c5d7b8c3 
+package.json browserslist 说明 https://www.jianshu.com/p/2a935a7dbab0
